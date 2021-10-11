@@ -2,31 +2,38 @@
 @model ProyectoCiclo3.App.Frontend.Pages.ListAvionModel
 @{
 }
- 
+
+
 <h1>Listado de Aviones</h1>
 <table class="table">
-    <tr>
-    <th>ID</th>
-    <th>MARCA</th>
-    <th>MODELO</th>
-     <th>NUMERO ASIENTOS</th>
-    <th>NUMERO BAÑOS</th>
-    <th>CAPACIDAD MAXIMA</th>
-  </tr>
-    @foreach (var Avion in Model.Aviones)
-    {         
+    <thead>
+        <th>Id</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Numero de asiento</th>
+        <th>Numero Baños</th>
+        <th>Capacidad Max</th>
+    </thead>
+ @foreach (var avion in Model.Aviones)
+    
+    {        
                     
             <tr>    
-            <td>@Avion.id</td>
-            <td>@Avion.Marca </td>
-            <td>@Avion.Modelo </td>
-            <td>@Avion.NumeroAsiento</td>
-            <td>@Avion.NumeroBanos</td>
-            <td>@Avion.CapacidadMax</td>
+            <td>@avion.id</td>
+            <td>@avion.Marca </td>
+            <td>@avion.Modelo </td>
+            <td>@avion.NumeroAsiento</td>
+            <td>@avion.NumeroBanos</td>
+            <td>@avion.CapacidadMax</td>
             <td>
-              <a class="btn btn-info" asp-page="./Details" asp-route-avionId="@Avion.id"><i class="fas fa-adjust"></i>Ver</a>
-               <a class="btn btn-info" asp-page="./Edit" asp-route-avionId="@Avion.id"><i class="fas fa-adjust"></i>Editar</a>
-              <a class="btn btn-danger" href="">Eliminar</a>
+              <a class="btn btn-info" asp-page="./Details" asp-route-avionId="@avion.id"><i class="fas fa-adjust"></i>Ver</a>
+               <a class="btn btn-info" asp-page="./Edit" asp-route-avionId="@avion.id"><i class="fas fa-adjust"></i>Editar</a>
+            
+            <form method="POST">
+            <input type="number" class="d-none" id="id" asp-for="@avion.id">
+            <button type="submit"class="btn btn-danger">Eliminar</button>
+            </form>
+
               </td>
         </tr>
      

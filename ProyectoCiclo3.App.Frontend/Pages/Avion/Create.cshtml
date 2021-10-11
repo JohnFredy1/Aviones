@@ -1,22 +1,24 @@
 @page
+@model ProyectoCiclo3.App.Frontend.Pages.FormAvionModel
 @{
+    var avion = Model.Avion;
 }
+
  
 <div class="text-center">
-<form action="">
-  <label for="text" class="form-label">Id:</label>
-  <input type="number" class="form-control" id="Id" name="Id" placeholder="Id">
+<form method="POST">
+  
   <label for="text" class="form-label">Marca:</label>
-  <input type="text" class="form-control" Marca="Marca" name="Marca" placeholder="Marca">
+  <input type="text" class="form-control" id="Marca"  placeholder="Marca" asp-for="@avion.Marca" Required>
   <label for="text" class="form-label">Modelo:</label>
-  <input type="number" class="form-control" Modelo="Modelo" name="Modelo" placeholder="Modelo">
+  <input type="number" class="form-control" id="Modelo"  placeholder="Modelo" asp-for="@avion.Modelo" Required>
   <label for="text" class="form-label">Numero Asientos:</label>
-  <input type="number" class="form-control" NumeroAsiento="Numero Asientos" name="Numero Asientos" placeholder="Numero Asientos">
- <label for="text" class="form-label">Numero Banos:</label>
-  <input type="number" class="form-control" NumeroBanos="NumeroBanos" name="NumeroBanosx" placeholder="NumeroBanos">
- 
- <label for="text" class="form-label">Capacidad Max:</label>
-  <input type="number" class="form-control" CapacidadMax="Capacidad Max" name="Capacidad Max" placeholder="Capacidad Max">
+  <input type="number" class="form-control" id ="NumeroAsiento"  placeholder="NumeroAsientos" asp-for="@avion.NumeroAsiento" Required>
+  <label for="text" class="form-label">Numero Baños:</label>
+  <input type="number" class="form-control" id ="NumeroBanos"  placeholder="NumeroBanos" asp-for="@avion.NumeroBanos" Required>
+  
+  <label for="text" class="form-label">Capacidad Max:</label>
+  <input type="number" class="form-control" id="CapacidadMax"  step="any" placeholder="CapacidadMax"  asp-for="@avion.CapacidadMax" Requiered>
   
   <hr>
   <button type="submit" class="btn btn-success">Enviar</button>

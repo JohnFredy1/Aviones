@@ -18,6 +18,33 @@ namespace ProyectoCiclo3.App.Persistencia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("ProyectoCiclo3.App.Dominio.Aeropuertos", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CoordX")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Coordy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Aeropuertos");
+                });
+
             modelBuilder.Entity("ProyectoCiclo3.App.Dominio.Aviones", b =>
                 {
                     b.Property<int>("id")
@@ -43,6 +70,27 @@ namespace ProyectoCiclo3.App.Persistencia.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Aviones");
+                });
+
+            modelBuilder.Entity("ProyectoCiclo3.App.Dominio.Rutas", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Destino")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Origen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TiempoEstimado")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Rutas");
                 });
 #pragma warning restore 612, 618
         }
